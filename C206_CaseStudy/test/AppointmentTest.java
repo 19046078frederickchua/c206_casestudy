@@ -104,6 +104,27 @@ public class AppointmentTest {
 		AppointmentArray.deletappointments(ap1.getdateid());
 
 	}
-	
+	public void updateappointment() {
+		int newdateid = 9;
+		int newday = 9;
+		int newmonth = 9;
+		int newyear= 2000;
+		// Test that date id  is updated to newdateid after using setdateid() method
+		ap1.setdateid(newdateid);
+		int updatedateid = ap1.getdateid();
+		assertEquals("Test that dateid is updated to newdateid after using setdateid() method", newdateid,updatedateid);
+		// Test that day is updated to newday after using setDay() method
+		ap1.setDay(newday);
+		int updateday = ap1.getDay();
+		assertEquals("Test that Day is updated to newday after using setDay() method", newday,updateday);
+		// Test that day is updated to newday after using setYear() method
+		ap1.setMonth(newmonth);
+		int updatemonth =  ap1.getMonth();
+		assertEquals("Test that month is updated to newmonth after using setMonth() method", newmonth,updatemonth);
+		// Test that year is updated to newyear after using setDay() method
+		ap1.setYear(newyear);
+		int updateyear = ap1.getYear();
+		assertEquals("Test that year is updated to newyear after using setYear() method", newyear,updateyear);
+	}
 
 }
