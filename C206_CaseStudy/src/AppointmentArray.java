@@ -59,8 +59,9 @@ public class AppointmentArray {
 		int day = Helper.readInt("Enter day > ");
 		int month = Helper.readInt("Enter month > ");
 		int year = Helper.readInt("Enter year > ");
-
-		appointments ap = new appointments( dateid ,day, month, year);
+		String notes = Helper.readString("Enter meeting notes > ");
+		
+		appointments ap = new appointments( dateid ,day, month, year, notes);
 		return ap;
 		
 	}
@@ -99,13 +100,13 @@ public class AppointmentArray {
         boolean isTrue = false;
     
             for(int i =0 ; i< appointmentList.size(); i++) {
-                if(appointmentList.get(i).getdateid()==(i)) {
+                if(appointmentList.get(i).getdateid()==(update)) {
                     
                         System.out.println("1. Change date id ");
                         System.out.println("2. Change day");
                         System.out.println("3. Change month");
                         System.out.println("4. Change year");
-                      
+                        System.out.println("5. Change time");
                         
                         option = Helper.readInt("Enter Option > ");
                         
@@ -125,6 +126,10 @@ public class AppointmentArray {
                             int newyear = Helper.readInt("Enter new year > ");
                             appointmentList.get(i).setYear(newyear);
                         }
+                        else if(option == 5) {
+                            String newtime = Helper.readString("Enter new time > ");
+                            appointmentList.get(i).setTime(newtime);
+                        }
                         else {
                             System.out.println("Invalid Option");
                         }
@@ -137,12 +142,38 @@ public class AppointmentArray {
                 System.out.println("appointments does not exist");
             }
     }
-	//===============================option 5 change date ================================
-	public static void changeappointment(int change) {
-		
-			
-			
-		}
-		
+	//===============================option 5 add meeting notes ================================
+	public static void inputmeetingnotes(int id) {
+		 for(int i =0 ; i< appointmentList.size(); i++) {
+             if(appointmentList.get(i).getdateid()==(id)) {
+		    String notes1  = Helper.readString("Enter meeting notes for the day");
+		    appointmentList.get(i).setNotes(notes1);
+		    System.out.println("notes updated ");
+             }
+             else{
+            	 System.out.println("invalid id");
+             }
+		 }
+		 }
+		//===============================option 6 change meeting date ================================
+			public static void changemeetingdate(int update) {
+				 for(int i =0 ; i< appointmentList.size(); i++) {
+		             if(appointmentList.get(i).getdateid()==(update)) {
+		            	 String todaysdate = Helper.readString("enter todays date to change(dd/mm/yyyy)");
+		            	 todaysdate.split("/");
+		            	
+		             }
+		             }
+		             
+				 
+		 
 	}
+
+	
+	}
+
+	
+	
+		
+	
 		

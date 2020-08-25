@@ -13,8 +13,8 @@ public class AppointmentTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		ap1 = new appointments(1,1,1,1);
-		ap2 = new appointments(2,2,2,2);
+		ap1 = new appointments(1,1,1,1, "2.30pm");
+		ap2 = new appointments(2,2,2,2, "3.30pm");
 	}
 
 	@After

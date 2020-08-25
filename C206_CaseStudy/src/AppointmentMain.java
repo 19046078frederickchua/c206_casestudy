@@ -36,12 +36,17 @@ public class AppointmentMain {
 				AppointmentArray.updateappointment(update);
 			}
 			else if(option ==5) {
-				System.out.println("change appointment date ");
-				int change = Helper.readInt("Enter appointment day: ");
-				AppointmentArray.changeappointment(change);
+				System.out.println("add meeting notes  ");
+				int update = Helper.readInt("Enter appointment id: ");
+				AppointmentArray.inputmeetingnotes(update);
+			}
+			else if(option ==6) {
+				System.out.println("change meeting day  ");
+				int update = Helper.readInt("Enter appointment id : ");
+				AppointmentArray.changemeetingdate(update);
 			}
 			
-			else if(option ==6) {
+			else if(option ==7) {
 				System.out.println("good bye!");
 			}
 		

@@ -1,4 +1,5 @@
-
+import java.util.Date;
+import java.util.Timer;
 
 public class appointments {
 	
@@ -6,16 +7,37 @@ public class appointments {
 	private int day;
     private int month;
     private int year;
+    private String time;
+    private String notes;
+    
    
 
     
-    public appointments (int dateid ,int day , int  month , int year ) {
+    public appointments (int dateid , int day , int  month , int year ,  String time) {
     	this.dateid = dateid ;
     	this.day = day;
         this.month = month; 
         this.year = year ;
+        this.time = time;
+        this.notes = null;
     }
   
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
 	public int getdateid()
     {
         return dateid;
@@ -57,13 +79,21 @@ public class appointments {
         this.year = year;
     }
 
-    public String getDate() {
+
+	public void setDateid(int dateid) {
+		this.dateid = dateid;
+	}
+
+	
+
+	public String getDate() {
     	String output = dateid + ":" + day + "/" + month + "/" + year + "\n";
     	return output;
     }
 	
    
 }
+
 
 
 
