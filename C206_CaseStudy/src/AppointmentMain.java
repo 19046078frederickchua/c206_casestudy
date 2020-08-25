@@ -32,11 +32,16 @@ public class AppointmentMain {
 		}
 			else if(option ==4) {
 				System.out.println("Update appointments");
-				String update = Helper.readString("Enter appointment id: ");
+				int update = Helper.readInt("Enter appointment id: ");
 				AppointmentArray.updateappointment(update);
 			}
-			
 			else if(option ==5) {
+				System.out.println("change appointment date ");
+				int change = Helper.readInt("Enter appointment day: ");
+				AppointmentArray.changeappointment(change);
+			}
+			
+			else if(option ==6) {
 				System.out.println("good bye!");
 			}
 		

@@ -5,6 +5,7 @@ public class AppointmentArray {
 	
 	
 	
+	
 	public static ArrayList<appointments> appointmentList = new ArrayList<appointments>(); 
 	
 	public static void menu() {
@@ -87,10 +88,10 @@ public class AppointmentArray {
 		} else {
 			System.out.println("appointment Deleted!");
 		}
-		//===============================option 4 update ================================
+		
 	}
-
-	public static void updateappointment(String update) {
+	//===============================option 4 update ================================
+	public static void updateappointment(int update) {
 		int option = 0;
 
 		 
@@ -136,5 +137,12 @@ public class AppointmentArray {
                 System.out.println("appointments does not exist");
             }
     }
+	//===============================option 5 change date ================================
+	public static void changeappointment(int change) {
+		
+			
+			
+		}
 		
 	}
+		
