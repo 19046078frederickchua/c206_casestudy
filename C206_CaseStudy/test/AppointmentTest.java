@@ -35,16 +35,16 @@ public class AppointmentTest {
 				assertEquals("Test that the size of appointmentlist is 0", 0, AppointmentArray.appointmentList.size());
 				
 				
-				// Test that appointmentList size is 1 when 1 instructor object is added
+				// Test that appointmentList size is 1 when 1 appointment object is added
 				AppointmentArray.addappointments(AppointmentArray.appointmentList, ap1);
-				assertEquals("Test that the size of instructorList is 1", 1, AppointmentArray.appointmentList.size());
+				assertEquals("Test that the size of appointmentlist is 1", 1, AppointmentArray.appointmentList.size());
 				AppointmentArray.appointmentList.clear();
 
-				// Test that appointmentlist size is 2 when 2 instructor objects are added
+				// Test that appointmentlist size is 2 when 2 appointment objects are added
 				AppointmentArray.addappointments(AppointmentArray.appointmentList, ap1);
 				AppointmentArray.addappointments(AppointmentArray.appointmentList, ap2);
 				System.out.println(AppointmentArray.appointmentList.size());
-				assertEquals("Test that instructorList size is 2 when 2 instructor objects are added", 2,
+				assertEquals("Test that appointmentlist size is 2 when 2 appointment objects are added", 2,
 						AppointmentArray.appointmentList.size());
 				
 				// Test that the first item in appointlist is the same
