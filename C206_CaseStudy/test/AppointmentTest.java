@@ -82,6 +82,27 @@ public class AppointmentTest {
 		assertEquals("Test that viewAllCategory() method return a String that equals expectedOutput2",output, viewappointment2);
 		
 	}
+	@Test
+	public void deletappointments() {
+		// Test if the ArrayList is null?
+		assertNotNull("//Test that instructorList is not null", AppointmentArray.appointmentList);
 
+		// Test if the item arraylist is still 0 after adding student 1 into the array
+		// list
+		AppointmentArray.addappointments(AppointmentArray.appointmentList, ap1);
+		AppointmentArray.deletappointments(ap1.getdateid());
+		assertEquals("Test if the appointment arraylist is still 0 after adding and deleting", 0,
+				AppointmentArray.appointmentList.size());
+
+		// Test if after adding ap1 and ap2 and deleting ap2 from the arrayList to
+		// check
+		// if the arraylist is equals to 1 after deleting one from the arraylist
+		AppointmentArray.addappointments(AppointmentArray.appointmentList, ap1);
+		AppointmentArray.addappointments(AppointmentArray.appointmentList, ap2);
+		AppointmentArray.deletappointments(ap2.getdateid());
+		assertEquals("Test if the appointment arraylist is still 1 after adding 2 appointment and deleting 1 of the appointment",1, AppointmentArray.appointmentList.size());
+		AppointmentArray.deletappointments(ap1.getdateid());
+
+	}
 
 }
