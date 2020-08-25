@@ -55,7 +55,7 @@ public class AppointmentTest {
 				AppointmentArray.addappointments(AppointmentArray.appointmentList, ap1);
 				AppointmentArray.addappointments(AppointmentArray.appointmentList, ap2);
 				assertEquals("Test that second item in appointmentlist is the same", ap2, AppointmentArray.appointmentList.get(1));
-		
+		 
 	}
 
 }
