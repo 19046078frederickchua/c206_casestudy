@@ -31,6 +31,12 @@ public class AppointmentMain {
 				
 		}
 			else if(option ==4) {
+				System.out.println("Update appointments");
+				String update = Helper.readString("Enter appointment id: ");
+				AppointmentArray.updateappointment(update);
+			}
+			
+			else if(option ==5) {
 				System.out.println("good bye!");
 			}
 		

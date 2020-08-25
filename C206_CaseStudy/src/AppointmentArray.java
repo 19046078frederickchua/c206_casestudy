@@ -12,7 +12,8 @@ public class AppointmentArray {
 		System.out.println("1. Display appointments");
 		System.out.println("2. Add appointments");
 		System.out.println("3. delete appointments");
-		System.out.println("4. Exit");
+		System.out.println("4. update ");
+		System.out.println("5. Exit");
 	}
 	
 	public static void setHeader(String header) {
@@ -86,5 +87,54 @@ public class AppointmentArray {
 		} else {
 			System.out.println("appointment Deleted!");
 		}
+		//===============================option 4 update ================================
 	}
-}
+
+	public static void updateappointment(String update) {
+		int option = 0;
+
+		 
+
+        boolean isTrue = false;
+    
+            for(int i =0 ; i< appointmentList.size(); i++) {
+                if(appointmentList.get(i).getdateid()==(i)) {
+                    
+                        System.out.println("1. Change date id ");
+                        System.out.println("2. Change day");
+                        System.out.println("3. Change month");
+                        System.out.println("4. Change year");
+                      
+                        
+                        option = Helper.readInt("Enter Option > ");
+                        
+                        if(option == 1) {
+                            int  newdateid = Helper.readInt("Enter new date id  > ");
+                            appointmentList.get(i).setdateid(newdateid);
+                        }
+                        else if(option == 2) {
+                            int newday = Helper.readInt("Enter new day > ");
+                            appointmentList.get(i).setDay(newday);
+                        }
+                        else if(option == 3) {
+                            int newmonth = Helper.readInt("Enter new month > ");
+                            appointmentList.get(i).setMonth(newmonth);
+                        }
+                        else if(option == 4) {
+                            int newyear = Helper.readInt("Enter new year > ");
+                            appointmentList.get(i).setYear(newyear);
+                        }
+                        else {
+                            System.out.println("Invalid Option");
+                        }
+                    }
+                
+                isTrue = true;
+                    
+                }
+            if(isTrue == false) {
+                System.out.println("appointments does not exist");
+            }
+    }
+		
+	}
