@@ -12,7 +12,7 @@ public class AppointmentMain {
 	public void start() {
 		
 		int option = 0;
-		while(option != 7) {
+		while(option != 6) {
 			AppointmentArray.menu();
 			option = Helper.readInt("Enter option > ");
 			
@@ -30,22 +30,21 @@ public class AppointmentMain {
 			
 				
 		}
+			
 			else if(option ==4) {
-				System.out.println("Update appointments");
-				int update = Helper.readInt("Enter appointment id: ");
-				AppointmentArray.updateappointment(update);
-			}
-			else if(option ==5) {
 				System.out.println("add meeting notes  ");
 				int update = Helper.readInt("Enter appointment id: ");
-				AppointmentArray.inputmeetingnotes(update);
+				
 			}
-			else if(option ==6) {
+			else if(option ==5) {
 				updatingmeeting();
 			}
 			
-			else if(option ==7) {
+			else if(option ==6) {
 				System.out.println("good bye!");
+			}
+			else {
+				System.out.println("invalid input");
 			}
 		
 	}

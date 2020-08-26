@@ -139,6 +139,8 @@ public class AppointmentTest {
 		
 	}
 	public void changemeetingdate() {
+		//check that changes can only be made one day before 
+		
 		
 		
 	} 

@@ -13,10 +13,9 @@ public class AppointmentArray {
 		System.out.println("1. Display appointments");
 		System.out.println("2. Add appointments");
 		System.out.println("3. delete appointments");
-		System.out.println("4. update date (For administrators) ");
-		System.out.println("5. add meeting notes  ");
-		System.out.println("6. change meeting date ");
-		System.out.println("7. Exit");
+		System.out.println("4. add meeting notes  ");
+		System.out.println("5. change meeting date ");
+		System.out.println("6. Exit");
 	}
 	
 	public static void setHeader(String header) {
@@ -37,14 +36,15 @@ public class AppointmentArray {
 
 	//================================= Option 1 View =================================
 	public static String retrieveAllappointments(ArrayList<appointments> appointmentlist) {
-		String output = String.format("%-20s %-10s\n", "APPOINTMENT ID", "APPOINTMENT DATE");
+		String output = String.format("%-20s %-10s %-15s\n", "APPOINTMENT ID", "APPOINTMENT DATE", "APPOINTMENT NOTES");
 		boolean isture = false;
 		for (int i = 0; i < appointmentlist.size(); i++) {
 			System.out.println("appointment  LIST");
 			isture = true;
 //			System.out.println(mainappointments.showAvailability(appointmentlist.get(i)));
-			output += String.format("%-20d %d/%d/%d", AppointmentArray.appointmentList.get(i).getdateid(),
-					AppointmentArray.appointmentList.get(i).getDay(), AppointmentArray.appointmentList.get(i).getMonth(), AppointmentArray.appointmentList.get(i).getYear());
+			output += String.format("%-20d %d/%d/%d %-15s", AppointmentArray.appointmentList.get(i).getdateid(),
+					AppointmentArray.appointmentList.get(i).getDay(), AppointmentArray.appointmentList.get(i).getMonth(), AppointmentArray.appointmentList.get(i).getYear(),
+					AppointmentArray.appointmentList.get(i).getNotes());
 					
 		}
 		if(isture == false) {
@@ -98,68 +98,22 @@ public class AppointmentArray {
 		}
 		
 	}
-	//===============================option 4 update ================================
-	public static void updateappointment(int update) {
-		int option = 0;
-
-		 
-
-        boolean isTrue = false;
+	
+	
     
-            for(int i =0 ; i< appointmentList.size(); i++) {
-                if(appointmentList.get(i).getdateid()==(update)) {
-                    
-                        System.out.println("1. Change date id ");
-                        System.out.println("2. Change day");
-                        System.out.println("3. Change month");
-                        System.out.println("4. Change year");
-                        System.out.println("5. Change time");
-                        
-                        option = Helper.readInt("Enter Option > ");
-                        
-                        if(option == 1) {
-                            int  newdateid = Helper.readInt("Enter new date id  > ");
-                            appointmentList.get(i).setdateid(newdateid);
-                        }
-                        else if(option == 2) {
-                            int newday = Helper.readInt("Enter new day > ");
-                            appointmentList.get(i).setDay(newday);
-                        }
-                        else if(option == 3) {
-                            int newmonth = Helper.readInt("Enter new month > ");
-                            appointmentList.get(i).setMonth(newmonth);
-                        }
-                        else if(option == 4) {
-                            int newyear = Helper.readInt("Enter new year > ");
-                            appointmentList.get(i).setYear(newyear);
-                        }
-                        else if(option == 5) {
-                            String newtime = Helper.readString("Enter new time > ");
-                            appointmentList.get(i).setTime(newtime);
-                        }
-                        else {
-                            System.out.println("Invalid Option");
-                        }
-                    }
-                
-                isTrue = true;
-                    
-                }
-            if(isTrue == false) {
-                System.out.println("appointments does not exist");
-            }
-    }
 	//===============================option 5 add meeting notes ================================
-	public static void inputmeetingnotes(int id) {
+	public static void inputmeetingnotes(int id, String notes) {
+		boolean isTrue = false;
 		 for(int i =0 ; i< appointmentList.size(); i++) {
+			 isTrue = true;
              if(appointmentList.get(i).getdateid()==(id)) {
-		    String notes1  = Helper.readString("Enter meeting notes for the day");
-		    appointmentList.get(i).setNotes(notes1);
+		    appointmentList.get(i).setNotes(notes);
 		    System.out.println("notes updated ");
              }
-             else{
-            	 System.out.println("invalid id");
-             }
+           
+		 }
+		 if(isTrue == false) {
+			 System.out.println("Appointment does not exist");
 		 }
 		 }
 		//===============================option 6 change meeting date ================================
@@ -179,12 +133,23 @@ public class AppointmentArray {
 		            		 }
 		            	 }
 		            	 else if(option == 2) {
-		            		 appointmentList.get(i).setMonth(change);
+		            		
+		            		 if(change < appointmentList.get(i).getMonth()) {
+		            			 output += "Appointment cannot be in the past";
+		            		 }
+		            		 else {
+		            			 appointmentList.get(i).setMonth(change);
 		            		 output += "Month has been updated";
+		            		 }
 		            	 }
 		            	 else if(option == 3) {
+		            		 if(change < appointmentList.get(i).getYear()) {
+		            			 output += "Year Cannot be in the past";
+		            		 }
+		            		 else {
 		            		 appointmentList.get(i).setYear(change);
 		            		 output += "Year has been updated";
+		            		 }
 		            	 }
 		         			
 		            	
