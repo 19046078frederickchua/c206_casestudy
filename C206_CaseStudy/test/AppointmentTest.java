@@ -109,6 +109,7 @@ public class AppointmentTest {
 		int newday = 9;
 		int newmonth = 9;
 		int newyear= 2000;
+		String newtime ="3.40pm";
 		// Test that date id  is updated to newdateid after using setdateid() method
 		ap1.setdateid(newdateid);
 		int updatedateid = ap1.getdateid();
@@ -125,6 +126,24 @@ public class AppointmentTest {
 		ap1.setYear(newyear);
 		int updateyear = ap1.getYear();
 		assertEquals("Test that year is updated to newyear after using setYear() method", newyear,updateyear);
+		// Test that time is updated to newtime after using setDay() method
+		ap1.setTime(newtime);
+		String updatetime = ap1.getTime();
+		assertEquals("Test that year is updated to newtime after using setTime() method", newtime,updatetime);
+				
 	}
+	public void inputmeetingnotes() {
+		
+		String notes = "this is for testing";
+		// this is to Test that notes is added to the date after using setNotes() method
+		ap1.setNotes(notes);
+		String addnotes = ap1.getNotes();
+		assertEquals("Test that notes is added into date after using setNotes() method", notes,addnotes);
+		
+	}
+	public void changemeetingdate() {
+		
+		
+	} 
 
 }
