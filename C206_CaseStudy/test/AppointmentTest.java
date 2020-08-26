@@ -62,14 +62,11 @@ public class AppointmentTest {
 
 		// Test that appointmentlist is not null but empty
 		assertNotNull("Test that appointmentlist is not null", AppointmentArray.appointmentList);
-		// Test if the  appointmentlist is empty
-		String testOutput = "No appointment Found";
-		String viewappointment = AppointmentArray.retrieveAllappointments(AppointmentArray.appointmentList);
-		assertEquals("Test if the appointmentlist is empty", testOutput,viewappointment );
-
+		
 		//Test that viewAllappointments() method returns a String that equals to expectedOutput2
 		AppointmentArray.addappointments(AppointmentArray.appointmentList, ap1);
 		AppointmentArray.addappointments(AppointmentArray.appointmentList, ap2);
+		
 		
 		String output = String.format("%-20s %-10s\n", "APPOINTMENT ID", "APPOINTMENT DATE");
 		

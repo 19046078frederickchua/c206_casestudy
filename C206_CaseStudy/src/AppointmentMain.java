@@ -41,9 +41,7 @@ public class AppointmentMain {
 				AppointmentArray.inputmeetingnotes(update);
 			}
 			else if(option ==6) {
-				System.out.println("change meeting day  ");
-				int update = Helper.readInt("Enter appointment id : ");
-				AppointmentArray.changemeetingdate(update);
+				updatingmeeting();
 			}
 			
 			else if(option ==7) {
@@ -52,7 +50,43 @@ public class AppointmentMain {
 		
 	}
 	
+	}
 	
+	public void updatingmeeting() {
+		
+		int id = Helper.readInt("Enter Date ID > ");
+
+		System.out.println("UPDATE MENU");
+		System.out.println("1. Change day");
+		System.out.println("2. Change month");
+		System.out.println("3. Change year");
+		System.out.println("4. Quit");
+		int option = Helper.readInt("Enter option > ");
+		
+		if(option == 1) {
+			int day = Helper.readInt("Enter day to change > ");
+			System.out.println(AppointmentArray.changemeetingdate(id,option,day));
+		}
+		else if(option ==2) {
+			int month = Helper.readInt("Enter month to change> ");
+			System.out.println(AppointmentArray.changemeetingdate(id,option,month));
+
+			
+		}
+		else if (option ==3) {
+			int year  =Helper.readInt("Enter year to change > ");
+			System.out.println(AppointmentArray.changemeetingdate(id,option,year));
+
+		}
+		else if(option ==4) {
+			System.out.println("return to main menu");
+		}
+		else {
+			System.out.println("invalid option");
+		}
+		
+		
+		
 	}
 
 }

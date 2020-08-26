@@ -13,8 +13,10 @@ public class AppointmentArray {
 		System.out.println("1. Display appointments");
 		System.out.println("2. Add appointments");
 		System.out.println("3. delete appointments");
-		System.out.println("4. update ");
-		System.out.println("5. Exit");
+		System.out.println("4. update date (For administrators) ");
+		System.out.println("5. add meeting notes  ");
+		System.out.println("6. change meeting date ");
+		System.out.println("7. Exit");
 	}
 	
 	public static void setHeader(String header) {
@@ -36,20 +38,25 @@ public class AppointmentArray {
 	//================================= Option 1 View =================================
 	public static String retrieveAllappointments(ArrayList<appointments> appointmentlist) {
 		String output = String.format("%-20s %-10s\n", "APPOINTMENT ID", "APPOINTMENT DATE");
-
+		boolean isture = false;
 		for (int i = 0; i < appointmentlist.size(); i++) {
-
+			System.out.println("appointment  LIST");
+			isture = true;
 //			System.out.println(mainappointments.showAvailability(appointmentlist.get(i)));
 			output += String.format("%-20d %d/%d/%d", AppointmentArray.appointmentList.get(i).getdateid(),
 					AppointmentArray.appointmentList.get(i).getDay(), AppointmentArray.appointmentList.get(i).getMonth(), AppointmentArray.appointmentList.get(i).getYear());
 					
 		}
+		if(isture == false) {
+			output += "No appointment Found";
+		}
 		return output;	
 	}
-	public static void viewAllappointments(ArrayList<appointments> appointmentlist) {
+	public static String viewAllappointments(ArrayList<appointments> appointmentlist) {
 		System.out.println("appointment  LIST");
-		 retrieveAllappointments(appointmentlist);	
-		System.out.println(retrieveAllappointments(appointmentlist));
+
+		return retrieveAllappointments(appointmentlist);	
+
 	}
 		
 	//================================= Option 2 Add =================================
@@ -156,32 +163,42 @@ public class AppointmentArray {
 		 }
 		 }
 		//===============================option 6 change meeting date ================================
-			public static void changemeetingdate(int update) {
+			public static String changemeetingdate(int id, int option, int change) {
+				boolean istrue = false;
+				String output = "";
 				 for(int i =0 ; i< appointmentList.size(); i++) {
-		             if(appointmentList.get(i).getdateid()==(update)) {
-		            	 int todayYear = Helper.readInt("Enter today's year > ");
-		         		if (todayYear <= (appointmentList.get(i).getYear())) {
-		         			int month = Helper.readInt("Enter today's month > ");
-		         			if (month <= (appointmentList.get(i).getMonth())){
-		         				int date = Helper.readInt("Enter today's date > ");
-		         				if (date < appointmentList.get(i).getDay()) {
-		         					//Enter update codes
-		         				
-		         				} else {
-		         					System.out.println("Unable to update. Please update 1 day before appointment");
-		         				}
-		         				System.out.println("Unable to update. Appointment date has passed.");
-		         			}
-		         		} else {
-		         			System.out.println("Unable to update. Appointment date has passed.");
-		         		}
+		             if(appointmentList.get(i).getdateid()==(id)) {
+		            	 istrue = true;
+		            	 if(option == 1) {
+		            		 if(change == appointmentList.get(i).getDay()) {
+		            			 output += "update fail you can't change a meeting day on the day itself";
+		            		 }
+		            		 else {
+		            		 appointmentList.get(i).setDay(change);
+		            		 output += "Day has been updated";
+		            		 }
+		            	 }
+		            	 else if(option == 2) {
+		            		 appointmentList.get(i).setMonth(change);
+		            		 output += "Month has been updated";
+		            	 }
+		            	 else if(option == 3) {
+		            		 appointmentList.get(i).setYear(change);
+		            		 output += "Year has been updated";
+		            	 }
+		         			
 		            	
 		             }
 		             }
-	//===============================option 7 search for  ================================
+				 if(istrue == false) {
+					 output += "Update Fail";
+				 }
+				 return output;
+			}
+			
 				 
 		 
-	}
+	
 
 	
 	
