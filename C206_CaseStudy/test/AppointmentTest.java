@@ -68,11 +68,12 @@ public class AppointmentTest {
 		AppointmentArray.addappointments(AppointmentArray.appointmentList, ap2);
 		
 		
-		String output = String.format("%-20s %-10s\n", "APPOINTMENT ID", "APPOINTMENT DATE");
+		String output = String.format("%-20s %-20s %-15s %-15s\n", "APPOINTMENT ID", "APPOINTMENT DATE", "APPOINTMENT TIME","APPOINTMENT NOTES");
 		
 		for(int i = 0; i < AppointmentArray.appointmentList.size(); i++ ) {
-			output += String.format("%-20d %d/%d/%d", AppointmentArray.appointmentList.get(i).getdateid(),
-					AppointmentArray.appointmentList.get(i).getDay(), AppointmentArray.appointmentList.get(i).getMonth(), AppointmentArray.appointmentList.get(i).getYear());
+			output += String.format("%-20d %d/%d/%-16d %-15s %-15s\n", AppointmentArray.appointmentList.get(i).getdateid(),
+					AppointmentArray.appointmentList.get(i).getDay(), AppointmentArray.appointmentList.get(i).getMonth(), AppointmentArray.appointmentList.get(i).getYear(),
+					AppointmentArray.appointmentList.get(i).getTime(),AppointmentArray.appointmentList.get(i).getNotes());
 				
 		}
 		String viewappointment2 = AppointmentArray.retrieveAllappointments(AppointmentArray.appointmentList);
@@ -133,9 +134,11 @@ public class AppointmentTest {
 		
 		String notes = "this is for testing";
 		// this is to Test that notes is added to the date after using setNotes() method
-		ap1.setNotes(notes);
-		String addnotes = ap1.getNotes();
-		assertEquals("Test that notes is added into date after using setNotes() method", notes,addnotes);
+		AppointmentArray.appointmentList.add(ap1);
+		AppointmentArray.inputmeetingnotes(AppointmentArray.appointmentList.get(0).getdateid(), notes);
+		assertEquals("Test that notes is added into date after using setNotes() method", notes,AppointmentArray.appointmentList.get(0).getNotes());
+		
+		
 		
 	}
 	public void changemeetingdate() {

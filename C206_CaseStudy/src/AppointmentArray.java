@@ -36,15 +36,15 @@ public class AppointmentArray {
 
 	//================================= Option 1 View =================================
 	public static String retrieveAllappointments(ArrayList<appointments> appointmentlist) {
-		String output = String.format("%-20s %-10s %-15s\n", "APPOINTMENT ID", "APPOINTMENT DATE", "APPOINTMENT NOTES");
+		String output = String.format("%-20s %-20s %-15s %-15s\n", "APPOINTMENT ID", "APPOINTMENT DATE","APPOINTMENT TIME", "APPOINTMENT NOTES");
 		boolean isture = false;
 		for (int i = 0; i < appointmentlist.size(); i++) {
 			System.out.println("appointment  LIST");
 			isture = true;
 //			System.out.println(mainappointments.showAvailability(appointmentlist.get(i)));
-			output += String.format("%-20d %d/%d/%d %-15s", AppointmentArray.appointmentList.get(i).getdateid(),
+			output += String.format("%-20d %d/%d/%-16d %-15s %-15s\n", AppointmentArray.appointmentList.get(i).getdateid(),
 					AppointmentArray.appointmentList.get(i).getDay(), AppointmentArray.appointmentList.get(i).getMonth(), AppointmentArray.appointmentList.get(i).getYear(),
-					AppointmentArray.appointmentList.get(i).getNotes());
+					AppointmentArray.appointmentList.get(i).getTime(),AppointmentArray.appointmentList.get(i).getNotes());
 					
 		}
 		if(isture == false) {
@@ -66,9 +66,9 @@ public class AppointmentArray {
 		int day = Helper.readInt("Enter day > ");
 		int month = Helper.readInt("Enter month > ");
 		int year = Helper.readInt("Enter year > ");
-		String notes = Helper.readString("Enter meeting notes > ");
+		String time = Helper.readString("Enter meeting time > ");
 		
-		appointments ap = new appointments( dateid ,day, month, year, notes);
+		appointments ap = new appointments( dateid ,day, month, year,time);
 		return ap;
 		
 	}
