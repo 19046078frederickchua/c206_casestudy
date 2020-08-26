@@ -12,7 +12,7 @@ public class AppointmentMain {
 	public void start() {
 		
 		int option = 0;
-		while(option != 4) {
+		while(option != 7) {
 			AppointmentArray.menu();
 			option = Helper.readInt("Enter option > ");
 			

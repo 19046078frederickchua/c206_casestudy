@@ -159,16 +159,31 @@ public class AppointmentArray {
 			public static void changemeetingdate(int update) {
 				 for(int i =0 ; i< appointmentList.size(); i++) {
 		             if(appointmentList.get(i).getdateid()==(update)) {
-		            	 String todaysdate = Helper.readString("enter todays date to change(dd/mm/yyyy)");
-		            	 todaysdate.split("/");
+		            	 int todayYear = Helper.readInt("Enter today's year > ");
+		         		if (todayYear <= (appointmentList.get(i).getYear())) {
+		         			int month = Helper.readInt("Enter today's month > ");
+		         			if (month <= (appointmentList.get(i).getMonth())){
+		         				int date = Helper.readInt("Enter today's date > ");
+		         				if (date < appointmentList.get(i).getDay()) {
+		         					//Enter update codes
+		         				
+		         				} else {
+		         					System.out.println("Unable to update. Please update 1 day before appointment");
+		         				}
+		         				System.out.println("Unable to update. Appointment date has passed.");
+		         			}
+		         		} else {
+		         			System.out.println("Unable to update. Appointment date has passed.");
+		         		}
 		            	
 		             }
 		             }
-		             
+	//===============================option 7 search for  ================================
 				 
 		 
 	}
 
+	
 	
 	}
 
