@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
@@ -139,13 +140,14 @@ public class AppointmentTest {
 		assertEquals("Test that notes is added into date after using setNotes() method", notes,AppointmentArray.appointmentList.get(0).getNotes());
 		
 		// this is to test if the meeting notes can be viewed 
-		ap1.getNotes();
+		AppointmentArray.viewAllappointments(AppointmentArray.appointmentList);
 		assertEquals("Test that notes is able to be viewed", notes,AppointmentArray.appointmentList.get(0).getNotes());
 		
 		// this is to test if the one that i input is the same with the one that i save 
-		
-		
+		assertSame("Test if the one that i input is the same with the one that i save  ",notes,AppointmentArray.appointmentList.get(0).getNotes());
 		
 	}
+
+	
 	
 }
