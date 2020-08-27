@@ -101,7 +101,7 @@ public class AppointmentArray {
 	
 	
     
-	//===============================option 5 add meeting notes ================================
+	//===============================option 4 add meeting notes ================================
 	public static void inputmeetingnotes(int id, String notes) {
 		boolean isTrue = false;
 		 for(int i =0 ; i< appointmentList.size(); i++) {
@@ -116,7 +116,7 @@ public class AppointmentArray {
 			 System.out.println("Appointment does not exist");
 		 }
 		 }
-		//===============================option 6 change meeting date ================================
+		//===============================option 5 change meeting date and update date and time  ================================
 			public static String changemeetingdate(int id, int option, int change) {
 				boolean istrue = false;
 				String output = "";
@@ -160,6 +160,10 @@ public class AppointmentArray {
 				 }
 				 return output;
 			}
+
+			
+
+			
 			
 				 
 		 

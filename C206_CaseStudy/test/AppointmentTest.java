@@ -103,32 +103,32 @@ public class AppointmentTest {
 
 	}
 	public void updateappointment() {
-		int newdateid = 9;
-		int newday = 9;
-		int newmonth = 9;
-		int newyear= 2000;
-		String newtime ="3.40pm";
-		// Test that date id  is updated to newdateid after using setdateid() method
-		ap1.setdateid(newdateid);
-		int updatedateid = ap1.getdateid();
-		assertEquals("Test that dateid is updated to newdateid after using setdateid() method", newdateid,updatedateid);
-		// Test that day is updated to newday after using setDay() method
-		ap1.setDay(newday);
-		int updateday = ap1.getDay();
-		assertEquals("Test that Day is updated to newday after using setDay() method", newday,updateday);
-		// Test that day is updated to newday after using setYear() method
-		ap1.setMonth(newmonth);
-		int updatemonth =  ap1.getMonth();
-		assertEquals("Test that month is updated to newmonth after using setMonth() method", newmonth,updatemonth);
-		// Test that year is updated to newyear after using setDay() method
-		ap1.setYear(newyear);
-		int updateyear = ap1.getYear();
-		assertEquals("Test that year is updated to newyear after using setYear() method", newyear,updateyear);
-		// Test that time is updated to newtime after using setDay() method
-		ap1.setTime(newtime);
-		String updatetime = ap1.getTime();
-		assertEquals("Test that year is updated to newtime after using setTime() method", newtime,updatetime);
+     
+		
+		//Test dateid does not exist error message
+		String output = AppointmentArray.changemeetingdate(3,1,3);
+		assertEquals("Test date id does not exist error message","date id does not exist", output);
+		
+		//Test invalid option error message
+		String output2 = AppointmentArray.changemeetingdate(ap1.getdateid(),5,2);
+		assertEquals("Test invalid option error message","Invalid Option", output2);
+		
+		//Test if Update dateid is  successful
+		String output3 = AppointmentArray.changemeetingdate(ap1.getdateid(),1,3);
+		assertEquals("Test if Update date id  is successful","Update date id  Successful", output3);
+		
+		//Test if option is correct  is successful
+		String output4 = AppointmentArray.changemeetingdate(ap1.getdateid(),2,4);
+		assertEquals("Test if Update day successful","Update Pday Successful", output4);
+		
+		//check that changes can only be made one day before 
+		String output5= AppointmentArray.changemeetingdate(ap1.getdateid(),1,1);
+		assertEquals("Test if the day is the same day  unsuccessful","change day unSuccessful", output5);
+		
+		String output6 = AppointmentArray.changemeetingdate(ap1.getdateid(),1,2);
+		assertEquals("Test if change  day successful","change day Successful", output6);
 				
+		
 	}
 	public void inputmeetingnotes() {
 		
@@ -138,14 +138,14 @@ public class AppointmentTest {
 		AppointmentArray.inputmeetingnotes(AppointmentArray.appointmentList.get(0).getdateid(), notes);
 		assertEquals("Test that notes is added into date after using setNotes() method", notes,AppointmentArray.appointmentList.get(0).getNotes());
 		
+		// this is to test if the meeting notes can be viewed 
+		ap1.getNotes();
+		assertEquals("Test that notes is able to be viewed", notes,AppointmentArray.appointmentList.get(0).getNotes());
+		
+		// this is to test if the one that i input is the same with the one that i save 
+		
 		
 		
 	}
-	public void changemeetingdate() {
-		//check that changes can only be made one day before 
-		
-		
-		
-	} 
-
+	
 }
